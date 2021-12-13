@@ -21,6 +21,6 @@ public class MoveController : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = transform.position + _direction * Time.fixedDeltaTime * Speed;
+        transform.position = transform.position - _direction * Time.fixedDeltaTime * Speed;
     }
 }

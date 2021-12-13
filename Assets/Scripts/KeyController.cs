@@ -12,7 +12,7 @@ public class KeyController : MonoBehaviour
         {
             var pc = other.GetComponent<PlayerController>();
             pc.GiveKey(Door);
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }
