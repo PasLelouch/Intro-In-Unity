@@ -5,8 +5,7 @@ using UnityEngine;
 public class MoveController : MonoBehaviour
 {
     [SerializeField] private float Speed;
-
-    private Vector3 _direction;
+    [SerializeField] private CharacterController controller;
 
     void Start()
     {
@@ -15,12 +14,10 @@ public class MoveController : MonoBehaviour
 
     void Update()
     {
-        _direction.x = Input.GetAxis("Horizontal");
-        _direction.z = Input.GetAxis("Vertical");
-    }
+       float x = Input.GetAxis("Horizontal");
+       float z = Input.GetAxis("Vertical");
 
-    void FixedUpdate()
-    {
-        transform.position = transform.position - _direction * Time.fixedDeltaTime * Speed;
+        Vector3 move = transform.right * x + transform.forward * z;
+        controller.Move(move * Speed * Time.deltaTime);
     }
 }
